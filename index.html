@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowFit Studio Tbilisi | Yoga, Stretching & Hall Rent</title>
+    <title>GlowFit Studio Tbilisi | Live Booking & Membership</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -24,7 +24,6 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0D0D0E; color: #F4EAE1; }
         .glass-card { background: rgba(22, 22, 24, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(226, 195, 155, 0.2); }
         .gold-glow { box-shadow: 0 0 25px rgba(226, 195, 155, 0.25); }
-        /* Hero background using real aesthetic studio photo */
         .hero-bg {
             background: linear-gradient(to bottom, rgba(13, 13, 14, 0.65), rgba(13, 13, 14, 0.95)), 
                         url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=1920');
@@ -41,7 +40,7 @@
 <body class="antialiased selection:bg-gold selection:text-black">
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/?text=Hello!%20I%20want%20to%20book%20a%20trial%20class%20at%20GlowFit" target="_blank" 
+    <a href="https://wa.me/?text=Hello!%20I%20want%20to%20buy%20a%20membership%20at%20GlowFit" target="_blank" 
        class="fixed bottom-6 right-6 z-50 pulse-whatsapp bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl flex items-center gap-3 border border-emerald-300/30">
         <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M12.031 0c-6.627 0-12 5.373-12 12 0 2.159.57 4.186 1.564 5.95l-1.625 5.93 6.069-1.59c1.71.928 3.67 1.458 5.762 1.458 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm6.529 16.993c-.27.761-1.348 1.401-2.179 1.579-.571.121-1.314.218-3.821-.82-3.208-1.328-5.277-4.578-5.437-4.79-.159-.213-1.302-1.733-1.302-3.303 0-1.57 1.222-2.344 1.656-2.344.27 0 .541.002.778.012.253.01.591-.095.927.712.347.832 1.189 2.903 1.294 3.118.106.213.177.464.035.748-.142.283-.213.46-.425.712-.213.253-.448.563-.641.756-.213.213-.435.445-.187.871.248.425 1.103 1.82 2.37 2.949 1.63 1.452 3.003 1.902 3.428 2.115.425.213.673.177.922-.106.248-.283 1.063-1.24 1.346-1.665.283-.425.567-.355.957-.213.39.142 2.479 1.168 2.904 1.381.425.213.709.319.815.5.106.177.106 1.028-.164 1.789z"/></svg>
         <span class="hidden md:inline font-semibold text-sm pr-1" id="waText">Chat with us</span>
@@ -56,81 +55,191 @@
             </div>
             
             <nav class="hidden md:flex gap-8 text-sm font-medium text-zinc-300">
-                <a href="#about" class="hover:text-gold transition" data-en="About" data-ru="О нас">About</a>
-                <a href="#pricing" class="hover:text-gold transition" data-en="Pricing" data-ru="Цены">Pricing</a>
+                <a href="#live-activities" class="hover:text-gold transition" data-en="Activities" data-ru="Занятия">Activities</a>
+                <a href="#schedule" class="hover:text-gold transition" data-en="Live Schedule" data-ru="Расписание">Live Schedule</a>
+                <a href="#pricing" class="hover:text-gold transition" data-en="Buy Membership" data-ru="Абонементы">Buy Membership</a>
                 <a href="#rent" class="hover:text-gold transition" data-en="Hall Rent" data-ru="Аренда">Hall Rent</a>
-                <a href="#faq" class="hover:text-gold transition" data-en="FAQ" data-ru="Частые вопросы">FAQ</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <!-- Language Switcher -->
                 <div class="flex items-center bg-zinc-900 p-1 rounded-full border border-zinc-800 text-xs">
                     <button onclick="switchLang('en')" id="btnEn" class="px-2.5 py-1 rounded-full bg-gold text-black font-bold">ENG</button>
                     <button onclick="switchLang('ru')" id="btnRu" class="px-2.5 py-1 rounded-full text-zinc-400 hover:text-white">RUS</button>
                 </div>
 
-                <button onclick="openBooking('Free Trial Class')" class="bg-gold text-black font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-dark transition gold-glow">
-                    <span data-en="Book Free Trial" data-ru="Записаться бесплатно">Book Free Trial</span>
+                <button onclick="openBooking('Free Trial Class', 0)" class="bg-gold text-black font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-dark transition gold-glow">
+                    <span data-en="Book Free Trial" data-ru="Бесплатный урок">Book Free Trial</span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-36 pb-20 px-6 hero-bg min-h-screen flex items-center">
+    <section class="relative pt-36 pb-16 px-6 hero-bg min-h-screen flex items-center">
         <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
             <div class="md:col-span-7">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-xs text-gold mb-6 gold-border">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span data-en="Small Groups • Tbilisi Center" data-ru="Мини-группы • Центр Тбилиси">Small Groups • Tbilisi Center</span>
+                    <span data-en="Live Studio • Groups up to 8" data-ru="Живая студия • Группы до 8 чел">Live Studio • Groups up to 8</span>
                 </div>
                 <h1 class="text-4xl md:text-6xl font-light tracking-tight leading-tight mb-6">
-                    <span data-en="Find Your Flow at" data-ru="Найдите свой баланс в">Find Your Flow at</span> 
+                    <span data-en="Transform Body & Mind at" data-ru="Преобразите тело и разум в">Transform Body & Mind at</span> 
                     <span class="font-semibold text-gold">GlowFit Studio</span>
                 </h1>
-                <p class="text-zinc-300 text-lg mb-8 max-w-xl font-light leading-relaxed" data-en="Stretching, Yoga, and Fitness in an aesthetic space designed for mind-body balance. Max 8 people per group." data-ru="Растяжка, йога и фитнес в эстетичном пространстве. Максимум 8 человек в группе для персонального внимания.">
-                    Stretching, Yoga, and Fitness in an aesthetic space designed for mind-body balance. Max 8 people per group.
+                <p class="text-zinc-300 text-lg mb-8 max-w-xl font-light leading-relaxed" data-en="Stretching, Yoga & Fitness in Tbilisi. Pick a class, see open spots, and book instantly." data-ru="Растяжка, йога и фитнес в Тбилиси. Выберите занятие и забронируйте место в 1 клик.">
+                    Stretching, Yoga & Fitness in Tbilisi. Pick a class, see open spots, and book instantly.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <button onclick="openBooking('Free Trial Class')" class="bg-gold text-black font-semibold px-8 py-4 rounded-full text-center hover:bg-gold-dark transition gold-glow">
-                        <span data-en="Claim Your Free Trial Class" data-ru="Забрать бесплатное занятие">Claim Your Free Trial Class</span>
-                    </button>
-                    <a href="#rent" class="border border-zinc-700 text-zinc-300 font-medium px-8 py-4 rounded-full text-center hover:bg-zinc-800 transition">
-                        <span data-en="Hall for Rent (40 GEL/hr)" data-ru="Аренда зала (40 ₾/час)">Hall for Rent (40 GEL/hr)</span>
+                    <a href="#pricing" class="bg-gold text-black font-semibold px-8 py-4 rounded-full text-center hover:bg-gold-dark transition gold-glow">
+                        <span data-en="Buy Membership Online" data-ru="Купить абонемент онлайн">Buy Membership Online</span>
+                    </a>
+                    <a href="#schedule" class="border border-zinc-700 text-zinc-300 font-medium px-8 py-4 rounded-full text-center hover:bg-zinc-800 transition">
+                        <span data-en="View Today's Schedule" data-ru="Расписание на сегодня">View Today's Schedule</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Instant Checkout/Booking Card -->
+            <!-- Instant Buying Widget -->
             <div class="md:col-span-5">
                 <div class="glass-card p-6 md:p-8 rounded-3xl relative gold-border gold-glow">
-                    <div class="text-xs uppercase text-gold font-semibold tracking-wider mb-2" data-en="Special Offer" data-ru="Спецпредложение">Special Offer</div>
-                    <h3 class="text-xl font-bold mb-2" data-en="Reserve Your Slot Now" data-ru="Забронируйте место">Reserve Your Slot Now</h3>
-                    <p class="text-xs text-zinc-400 mb-6" data-en="Get a FREE trial class with any membership purchase today." data-ru="Бесплатный пробный урок при бронировании до конца недели.">Get a FREE trial class with any membership purchase today.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs uppercase text-gold font-semibold tracking-wider" data-en="Instant Pass" data-ru="Быстрая покупка">Instant Pass</span>
+                        <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full" data-en="Instant Confirmation" data-ru="Мгновенное подтверждение">Instant Confirmation</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Get 8-Class Pass (210 GEL)" data-ru="Абонемент 8 занятий (210 ₾)">Get 8-Class Pass (210 GEL)</h3>
+                    <p class="text-xs text-zinc-400 mb-6" data-en="Includes FREE trial class + mat & water provided." data-ru="Включает бесплатный пробный урок. Коврик и вода включены.">Includes FREE trial class + mat & water provided.</p>
 
-                    <form onsubmit="handleQuickSubmit(event)" class="space-y-4">
-                        <input type="text" id="quickName" placeholder="Your Name" required class="w-full bg-zinc-900/90 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
-                        <input type="tel" id="quickPhone" placeholder="WhatsApp / Phone" required class="w-full bg-zinc-900/90 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
-                        <select id="quickDirection" class="w-full bg-zinc-900/90 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold text-zinc-300">
-                            <option value="Stretching">Stretching</option>
-                            <option value="Yoga">Yoga</option>
-                            <option value="Fitness & Barre">Fitness & Barre</option>
-                        </select>
-                        
-                        <button type="submit" class="w-full bg-gold text-black font-semibold py-3.5 rounded-xl hover:bg-gold-dark transition shadow-lg">
-                            <span data-en="Book Free Class" data-ru="Записаться бесплатно">Book Free Class</span>
-                        </button>
-                    </form>
+                    <button onclick="openPayment('8 Classes Membership', 210)" class="w-full bg-gold text-black font-semibold py-4 rounded-xl hover:bg-gold-dark transition shadow-lg text-center font-bold">
+                        <span data-en="Pay 210 GEL & Join Now" data-ru="Оплатить 210 ₾ и записаться">Pay 210 GEL & Join Now</span>
+                    </button>
+                    <p class="text-[11px] text-center text-zinc-500 mt-3" data-en="🔒 Secure Payment via Bank of Georgia / TBC / Card" data-ru="🔒 Безопасная оплата картами BOG / TBC">🔒 Secure Payment via Bank of Georgia / TBC / Card</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section with Online Payment Options -->
-    <section id="pricing" class="py-24 px-6 max-w-6xl mx-auto">
+    <!-- LIVE ACTIVITIES VISUAL CAROUSEL -->
+    <section id="live-activities" class="py-16 px-6 max-w-6xl mx-auto">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <span class="text-xs uppercase tracking-widest text-gold font-semibold" data-en="Inside Our Studio" data-ru="Атмосфера студии">Inside Our Studio</span>
+                <h2 class="text-2xl md:text-3xl font-light mt-1" data-en="Choose Your Practice" data-ru="Выберите направление">Choose Your Practice</h2>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Activity 1 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-zinc-800 hover:border-gold transition group">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800');">
+                    <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-gold text-xs px-3 py-1 rounded-full border border-gold/30">Stretching</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1" data-en="Split & Flexibility" data-ru="Шпагат и Растяжка">Split & Flexibility</h3>
+                    <p class="text-xs text-zinc-400 mb-4" data-en="Deep muscle stretch, posture alignment, and stress release." data-ru="Глубокая растяжка мышц, осанка и снятие зажимов.">Deep muscle stretch, posture alignment, and stress release.</p>
+                    <button onclick="openBooking('Stretching Class', 30)" class="w-full py-2.5 bg-zinc-800 hover:bg-gold hover:text-black font-semibold text-xs rounded-xl transition">
+                        <span data-en="Book Single Class (30 GEL)" data-ru="Записаться (30 ₾)">Book Single Class (30 GEL)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Activity 2 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-zinc-800 hover:border-gold transition group">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=800');">
+                    <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-gold text-xs px-3 py-1 rounded-full border border-gold/30">Yoga Flow</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1" data-en="Mindful Yoga Flow" data-ru="Мягкая Йога">Mindful Yoga Flow</h3>
+                    <p class="text-xs text-zinc-400 mb-4" data-en="Breathwork, core strength, and deep relaxation." data-ru="Снятие стресса, дыхание и укрепление спины.">Breathwork, core strength, and deep relaxation.</p>
+                    <button onclick="openBooking('Yoga Class', 30)" class="w-full py-2.5 bg-zinc-800 hover:bg-gold hover:text-black font-semibold text-xs rounded-xl transition">
+                        <span data-en="Book Single Class (30 GEL)" data-ru="Записаться (30 ₾)">Book Single Class (30 GEL)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Activity 3 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-zinc-800 hover:border-gold transition group">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=800');">
+                    <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-gold text-xs px-3 py-1 rounded-full border border-gold/30">Fitness & Barre</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1" data-en="Body Sculpt & Barre" data-ru="Фитнес и Барре">Body Sculpt & Barre</h3>
+                    <p class="text-xs text-zinc-400 mb-4" data-en="Dynamic tone workouts for glutes, legs, and abs." data-ru="Тонус ягодиц, ног и пресса без тяжелых весов.">Dynamic tone workouts for glutes, legs, and abs.</p>
+                    <button onclick="openBooking('Fitness & Barre Class', 30)" class="w-full py-2.5 bg-zinc-800 hover:bg-gold hover:text-black font-semibold text-xs rounded-xl transition">
+                        <span data-en="Book Single Class (30 GEL)" data-ru="Записаться (30 ₾)">Book Single Class (30 GEL)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE INTERACTIVE SCHEDULE -->
+    <section id="schedule" class="py-16 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+            <span class="text-xs uppercase tracking-widest text-gold font-semibold" data-en="Real-Time Booking" data-ru="Живое бронирование">Real-Time Booking</span>
+            <h2 class="text-3xl font-light mt-1" data-en="Today's Live Schedule" data-ru="Расписание на сегодня">Today's Live Schedule</h2>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border-zinc-800">
+            <div class="space-y-4">
+                <!-- Slot 1 -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-zinc-900/80 rounded-2xl border border-zinc-800/80 gap-4">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-gold text-lg">10:00 - 11:00</span>
+                            <span class="text-xs bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full">Stretching</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 mt-1">Instructor: Elena • Max 8 people</p>
+                    </div>
+                    <div class="flex items-center gap-4 w-full md:w-auto justify-between">
+                        <span class="text-xs text-amber-400 font-semibold bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">🔥 Only 2 spots left!</span>
+                        <button onclick="openBooking('Stretching 10:00 Slot', 30)" class="bg-gold text-black font-semibold text-xs px-5 py-2.5 rounded-xl hover:bg-gold-dark transition">
+                            Book Slot (30 GEL)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slot 2 -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-zinc-900/80 rounded-2xl border border-zinc-800/80 gap-4">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-gold text-lg">18:30 - 19:30</span>
+                            <span class="text-xs bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full">Yoga Flow</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 mt-1">Instructor: Maria • Evening Detox</p>
+                    </div>
+                    <div class="flex items-center gap-4 w-full md:w-auto justify-between">
+                        <span class="text-xs text-emerald-400 font-semibold bg-emerald-400/10 px-3 py-1 rounded-full border border-emerald-400/20">4 spots open</span>
+                        <button onclick="openBooking('Yoga 18:30 Slot', 30)" class="bg-gold text-black font-semibold text-xs px-5 py-2.5 rounded-xl hover:bg-gold-dark transition">
+                            Book Slot (30 GEL)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slot 3 -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-zinc-900/80 rounded-2xl border border-zinc-800/80 gap-4">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-gold text-lg">19:45 - 20:45</span>
+                            <span class="text-xs bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full">Fitness & Barre</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 mt-1">Instructor: Anna • Sculpt & Tone</p>
+                    </div>
+                    <div class="flex items-center gap-4 w-full md:w-auto justify-between">
+                        <span class="text-xs text-amber-400 font-semibold bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">🔥 Only 1 spot left!</span>
+                        <button onclick="openBooking('Barre 19:45 Slot', 30)" class="bg-gold text-black font-semibold text-xs px-5 py-2.5 rounded-xl hover:bg-gold-dark transition">
+                            Book Slot (30 GEL)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-20 px-6 max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-xs uppercase tracking-widest text-gold font-semibold" data-en="Transparent Rates" data-ru="Тарифы">Transparent Rates</span>
-            <h2 class="text-3xl md:text-4xl font-light mt-2" data-en="Membership & Prices" data-ru="Цены и Абонементы">Membership & Prices</h2>
+            <h2 class="text-3xl md:text-4xl font-light mt-2" data-en="Membership & Passes" data-ru="Цены и Абонементы">Membership & Passes</h2>
         </div>
 
         <div class="grid md:grid-cols-4 gap-6">
@@ -139,10 +248,10 @@
                 <div>
                     <h3 class="text-lg font-bold">Trial Class</h3>
                     <div class="text-3xl font-bold my-4 text-gold">FREE</div>
-                    <p class="text-xs text-zinc-400 mb-6" data-en="First trial lesson free upon membership purchase." data-ru="Первое пробное занятие при покупке абонемента.">First trial lesson free upon membership purchase.</p>
+                    <p class="text-xs text-zinc-400 mb-6">First trial lesson free upon pass purchase.</p>
                 </div>
-                <button onclick="openBooking('Trial Class (FREE)')" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
-                    <span data-en="Book Free" data-ru="Забронировать">Book Free</span>
+                <button onclick="openBooking('Free Trial', 0)" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
+                    Book Free Trial
                 </button>
             </div>
 
@@ -151,23 +260,23 @@
                 <div>
                     <h3 class="text-lg font-bold">4 Classes</h3>
                     <div class="text-3xl font-bold my-4">110 ₾</div>
-                    <p class="text-xs text-zinc-400 mb-6" data-en="30 GEL single pass. Valid for 30 days." data-ru="Разовое занятие: 30 ₾. Действует 30 дней.">30 GEL single pass. Valid for 30 days.</p>
+                    <p class="text-xs text-zinc-400 mb-6">30 GEL single pass. Valid 30 days.</p>
                 </div>
-                <button onclick="openBooking('4 Classes Membership - 110 GEL')" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
-                    <span data-en="Buy Pass" data-ru="Купить">Buy Pass</span>
+                <button onclick="openPayment('4 Classes Membership', 110)" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
+                    Buy Pass (110 GEL)
                 </button>
             </div>
 
-            <!-- 8 Classes (Popular) -->
+            <!-- 8 Classes -->
             <div class="glass-card p-6 rounded-2xl flex flex-col justify-between gold-border gold-glow relative">
-                <span class="absolute -top-3 right-4 bg-gold text-black text-[10px] uppercase font-bold px-3 py-1 rounded-full" data-en="Most Popular" data-ru="Популярный">Most Popular</span>
+                <span class="absolute -top-3 right-4 bg-gold text-black text-[10px] uppercase font-bold px-3 py-1 rounded-full">Best Seller</span>
                 <div>
                     <h3 class="text-lg font-bold">8 Classes</h3>
                     <div class="text-3xl font-bold my-4 text-gold">210 ₾</div>
-                    <p class="text-xs text-zinc-400 mb-6" data-en="Best for 2 sessions / week (~26 GEL/class)." data-ru="~26 ₾ за урок. Идеально 2 раза в неделю.">Best for 2 sessions / week (~26 GEL/class).</p>
+                    <p class="text-xs text-zinc-400 mb-6">~26 GEL per class. Ideal for 2x a week.</p>
                 </div>
-                <button onclick="openBooking('8 Classes Membership - 210 GEL')" class="w-full py-3 bg-gold text-black font-semibold rounded-xl text-sm hover:bg-gold-dark transition">
-                    <span data-en="Buy Pass" data-ru="Купить">Buy Pass</span>
+                <button onclick="openPayment('8 Classes Membership', 210)" class="w-full py-3 bg-gold text-black font-semibold rounded-xl text-sm hover:bg-gold-dark transition">
+                    Buy Pass (210 GEL)
                 </button>
             </div>
 
@@ -176,47 +285,26 @@
                 <div>
                     <h3 class="text-lg font-bold">12 Classes</h3>
                     <div class="text-3xl font-bold my-4">300 ₾</div>
-                    <p class="text-xs text-zinc-400 mb-6" data-en="Maximum value (~25 GEL/class)." data-ru="Максимальная выгода (~25 ₾/урок).">Maximum value (~25 GEL/class).</p>
+                    <p class="text-xs text-zinc-400 mb-6">Maximum savings (~25 GEL/class).</p>
                 </div>
-                <button onclick="openBooking('12 Classes Membership - 300 GEL')" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
-                    <span data-en="Buy Pass" data-ru="Купить">Buy Pass</span>
+                <button onclick="openPayment('12 Classes Membership', 300)" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
+                    Buy Pass (300 GEL)
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 px-6 max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-            <span class="text-xs uppercase tracking-widest text-gold font-semibold">FAQ</span>
-            <h2 class="text-3xl font-light mt-2" data-en="Frequently Asked Questions" data-ru="Часто задаваемые вопросы">Frequently Asked Questions</h2>
-        </div>
-
-        <div class="space-y-4">
-            <details class="glass-card p-5 rounded-2xl border-zinc-800 cursor-pointer">
-                <summary class="font-medium text-gold" data-en="What should I bring to my first class?" data-ru="Что взять с собой на первое занятие?">What should I bring to my first class?</summary>
-                <p class="text-xs text-zinc-400 mt-3 leading-relaxed" data-en="Just comfortable sportswear and socks. We provide clean mats, water, blocks, and towels." data-ru="Только удобную спортивную форму и носки. Коврики, воду и полотенца мы предоставляем.">Just comfortable sportswear and socks. We provide clean mats, water, blocks, and towels.</p>
-            </details>
-            <details class="glass-card p-5 rounded-2xl border-zinc-800 cursor-pointer">
-                <summary class="font-medium text-gold" data-en="I am a complete beginner. Is that okay?" data-ru="Я никогда не занималась растяжкой. Мне подойдет?">I am a complete beginner. Is that okay?</summary>
-                <p class="text-xs text-zinc-400 mt-3 leading-relaxed" data-en="Absolutely! Our groups are up to 8 people, so our trainer gives individual attention to all levels." data-ru="Конечно! Наши группы до 8 человек, поэтому тренер подбирает нагрузку индивидуально.">Absolutely! Our groups are up to 8 people, so our trainer gives individual attention to all levels.</p>
-            </details>
-            <details class="glass-card p-5 rounded-2xl border-zinc-800 cursor-pointer">
-                <summary class="font-medium text-gold" data-en="How do I book and pay for the hall rental?" data-ru="Как забронировать и оплатить аренду зала?">How do I book and pay for the hall rental?</summary>
-                <p class="text-xs text-zinc-400 mt-3 leading-relaxed" data-en="You can reserve the time slot online via card (Bank of Georgia / TBC) or pay on-site." data-ru="Вы можете забронировать время онлайн картой (BOG / TBC) или оплатить на месте.">You can reserve the time slot online via card (Bank of Georgia / TBC) or pay on-site.</p>
-            </details>
-        </div>
-    </section>
-
-    <!-- Booking & Payment Modal -->
+    <!-- Payment & Booking Modal -->
     <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="glass-card max-w-md w-full p-6 md:p-8 rounded-3xl relative gold-border">
             <button onclick="closeBooking()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl">✕</button>
-            <h3 class="text-xl font-bold text-gold mb-1" id="modalTitle">Book Class</h3>
-            <p class="text-xs text-zinc-400 mb-6">Choose payment method to confirm booking.</p>
+            <h3 class="text-xl font-bold text-gold mb-1" id="modalTitle">Instant Booking</h3>
+            <p class="text-xs text-zinc-400 mb-6" id="modalSubtitle">Confirm your slot in 30 seconds.</p>
 
             <form onsubmit="submitBooking(event)" class="space-y-4">
                 <input type="hidden" id="modalService" value="">
+                <input type="hidden" id="modalPrice" value="0">
+                
                 <div>
                     <label class="block text-xs text-zinc-400 mb-1">Full Name</label>
                     <input type="text" id="modalName" required placeholder="Anna Smith" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
@@ -226,23 +314,22 @@
                     <input type="tel" id="modalPhone" required placeholder="+995 ..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
                 </div>
                 
-                <!-- Payment Options -->
                 <div>
                     <label class="block text-xs text-zinc-400 mb-2">Payment Method</label>
                     <div class="grid grid-cols-2 gap-3">
                         <label class="flex items-center gap-2 p-3 bg-zinc-900 border border-zinc-700 rounded-xl text-xs cursor-pointer hover:border-gold">
                             <input type="radio" name="pay" value="Card (BOG / TBC)" checked class="accent-gold">
-                            <span>💳 Bank Card</span>
+                            <span>💳 Card (BOG / TBC)</span>
                         </label>
                         <label class="flex items-center gap-2 p-3 bg-zinc-900 border border-zinc-700 rounded-xl text-xs cursor-pointer hover:border-gold">
-                            <input type="radio" name="pay" value="On-site (Cash)" class="accent-gold">
+                            <input type="radio" name="pay" value="On-site Cash" class="accent-gold">
                             <span>💵 Pay On-site</span>
                         </label>
                     </div>
                 </div>
 
                 <button type="submit" class="w-full bg-gold text-black font-semibold py-3.5 rounded-xl hover:bg-gold-dark transition mt-2">
-                    Confirm & Proceed
+                    Confirm & Proceed to Payment
                 </button>
             </form>
         </div>
@@ -264,32 +351,31 @@
             }
         }
 
-        function openBooking(serviceName) {
+        function openBooking(serviceName, price) {
             document.getElementById('modalService').value = serviceName;
+            document.getElementById('modalPrice').value = price;
             document.getElementById('modalTitle').innerText = serviceName;
+            document.getElementById('modalSubtitle').innerText = price > 0 ? `Total amount: ${price} GEL` : 'Free Trial Booking';
             document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function openPayment(membershipName, price) {
+            openBooking(membershipName, price);
         }
 
         function closeBooking() {
             document.getElementById('bookingModal').classList.add('hidden');
         }
 
-        function handleQuickSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('quickName').value;
-            const phone = document.getElementById('quickPhone').value;
-            const dir = document.getElementById('quickDirection').value;
-            const text = `New Booking request!\nName: ${name}\nPhone: ${phone}\nDirection: ${dir}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
         function submitBooking(e) {
             e.preventDefault();
             const service = document.getElementById('modalService').value;
+            const price = document.getElementById('modalPrice').value;
             const name = document.getElementById('modalName').value;
             const phone = document.getElementById('modalPhone').value;
             const payMethod = document.querySelector('input[name="pay"]:checked').value;
-            const text = `Booking request!\nService: ${service}\nName: ${name}\nPhone: ${phone}\nPayment: ${payMethod}`;
+            
+            const text = `New Order from GlowFit Website!\nItem: ${service} (${price} GEL)\nName: ${name}\nPhone: ${phone}\nPayment: ${payMethod}`;
             window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
             closeBooking();
         }
