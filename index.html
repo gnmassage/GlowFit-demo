@@ -26,7 +26,7 @@
         .gold-glow { box-shadow: 0 0 25px rgba(226, 195, 155, 0.25); }
         .hero-bg {
             background: linear-gradient(to bottom, rgba(13, 13, 14, 0.7), rgba(13, 13, 14, 0.95)), 
-                        url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=1920'); /* ხვალ აქ ჩასვამთ მათ რეალურ ფოტოს */
+                        url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=1920'); /* ხვალ ჩასვამთ რეალურ ფოტოს */
             background-size: cover;
             background-position: center;
         }
@@ -50,16 +50,16 @@
     <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/5 py-4 px-6">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <!-- ლოგო: ხვალ აქ შეგიძლია ჩასვა მათი real ლოგოს <img> -->
+                <!-- ლოგო: ხვალ ჩასვამთ რეალურ ლოგოს -->
                 <span class="text-2xl font-bold tracking-tight text-gold">GlowFit</span>
                 <span class="text-xs uppercase tracking-widest text-zinc-400 border-l border-zinc-700 pl-3">Tbilisi</span>
             </div>
             
             <nav class="hidden md:flex gap-8 text-sm font-medium text-zinc-300">
-                <a href="#about" class="hover:text-gold transition" data-en="About" data-ru="О нас">About</a>
-                <a href="#schedule" class="hover:text-gold transition" data-en="Schedule" data-ru="Расписание">Schedule</a>
+                <a href="#activities" class="hover:text-gold transition" data-en="Activities" data-ru="Занятия">Activities</a>
                 <a href="#pricing" class="hover:text-gold transition" data-en="Memberships" data-ru="Абонементы">Memberships</a>
                 <a href="#rent" class="hover:text-gold transition" data-en="Hall Rent" data-ru="Аренда">Hall Rent</a>
+                <a href="#faq" class="hover:text-gold transition" data-en="FAQ" data-ru="Вопросы">FAQ</a>
             </nav>
 
             <div class="flex items-center gap-4">
@@ -79,7 +79,6 @@
     <section class="relative pt-36 pb-20 px-6 hero-bg min-h-screen flex items-center">
         <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
             <div class="md:col-span-7">
-                <!-- Real Google Review Badge -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-xs text-gold mb-6 border border-amber-400/30">
                     <span>⭐⭐⭐⭐⭐</span>
                     <span class="font-bold text-white">4.9 / 5.0</span>
@@ -98,8 +97,8 @@
                     <a href="#pricing" class="bg-gold text-black font-semibold px-8 py-4 rounded-full text-center hover:bg-gold-dark transition gold-glow">
                         <span data-en="Buy Membership Online" data-ru="Купить абонемент онлайн">Buy Membership Online</span>
                     </a>
-                    <a href="#schedule" class="border border-zinc-700 text-zinc-300 font-medium px-8 py-4 rounded-full text-center hover:bg-zinc-800 transition">
-                        <span data-en="View Schedule" data-ru="Расписание">View Schedule</span>
+                    <a href="#activities" class="border border-zinc-700 text-zinc-300 font-medium px-8 py-4 rounded-full text-center hover:bg-zinc-800 transition">
+                        <span data-en="Our Activities" data-ru="Наши направления">Our Activities</span>
                     </a>
                 </div>
             </div>
@@ -123,8 +122,60 @@
         </div>
     </section>
 
-    <!-- ZERO FRICTION / EXPECTATION SECTION (ზრუნვის ბლოკი) -->
-    <section id="about" class="py-16 px-6 bg-zinc-900/40 border-y border-zinc-800/80">
+    <!-- ACTIVITIES SECTION (დაბრუნებული აქტივობები) -->
+    <section id="activities" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="text-xs uppercase tracking-widest text-gold font-semibold" data-en="What We Offer" data-ru="Наши направления">What We Offer</span>
+            <h2 class="text-3xl font-light mt-1" data-en="Studio Activities" data-ru="Занятия в студии">Studio Activities</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Activity 1 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-zinc-800 hover:border-gold transition">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800');">
+                    <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-gold text-xs px-3 py-1 rounded-full border border-gold/30">Stretching</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1" data-en="Split & Flexibility" data-ru="Шпагат и Растяжка">Split & Flexibility</h3>
+                    <p class="text-xs text-zinc-400 mb-4" data-en="Deep muscle stretch, posture alignment, and stress release." data-ru="Глубокая растяжка мышц, осанка и снятие зажимов.">Deep muscle stretch, posture alignment, and stress release.</p>
+                    <button onclick="openBooking('Stretching Class', 30)" class="w-full py-2.5 bg-zinc-800 hover:bg-gold hover:text-black font-semibold text-xs rounded-xl transition">
+                        <span data-en="Book Class (30 GEL)" data-ru="Записаться (30 ₾)">Book Class (30 GEL)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Activity 2 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-zinc-800 hover:border-gold transition">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=800');">
+                    <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-gold text-xs px-3 py-1 rounded-full border border-gold/30">Yoga Flow</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1" data-en="Mindful Yoga Flow" data-ru="Мягкая Йога">Mindful Yoga Flow</h3>
+                    <p class="text-xs text-zinc-400 mb-4" data-en="Breathwork, core strength, and deep relaxation." data-ru="Снятие стресса, дыхание и укрепление спины.">Breathwork, core strength, and deep relaxation.</p>
+                    <button onclick="openBooking('Yoga Class', 30)" class="w-full py-2.5 bg-zinc-800 hover:bg-gold hover:text-black font-semibold text-xs rounded-xl transition">
+                        <span data-en="Book Class (30 GEL)" data-ru="Записаться (30 ₾)">Book Class (30 GEL)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Activity 3 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-zinc-800 hover:border-gold transition">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=800');">
+                    <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-gold text-xs px-3 py-1 rounded-full border border-gold/30">Fitness & Barre</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1" data-en="Body Sculpt & Barre" data-ru="Фитнес и Барре">Body Sculpt & Barre</h3>
+                    <p class="text-xs text-zinc-400 mb-4" data-en="Dynamic tone workouts for glutes, legs, and abs." data-ru="Тонус ягодиц, ног и пресса без тяжелых весов.">Dynamic tone workouts for glutes, legs, and abs.</p>
+                    <button onclick="openBooking('Fitness & Barre Class', 30)" class="w-full py-2.5 bg-zinc-800 hover:bg-gold hover:text-black font-semibold text-xs rounded-xl transition">
+                        <span data-en="Book Class (30 GEL)" data-ru="Записаться (30 ₾)">Book Class (30 GEL)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZERO FRICTION / EXPECTATION SECTION -->
+    <section class="py-16 px-6 bg-zinc-900/40 border-y border-zinc-800/80">
         <div class="max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-3xl border border-zinc-800 text-center">
             <span class="text-xs uppercase tracking-widest text-gold font-semibold" data-en="First Time Visiting?" data-ru="Впервые у нас?">First Time Visiting?</span>
             <h2 class="text-2xl md:text-3xl font-light mt-2 mb-6" data-en="Everything is Prepared for Your Comfort" data-ru="Всё готово для вашего комфорта">Everything is Prepared for Your Comfort</h2>
@@ -145,7 +196,7 @@
         </div>
     </section>
 
-    <!-- PRICING SECTION (Anchor & Decoy Pricing) -->
+    <!-- PRICING SECTION -->
     <section id="pricing" class="py-20 px-6 max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-xs uppercase tracking-widest text-gold font-semibold" data-en="Transparent Options" data-ru="Тарифы">Transparent Options</span>
@@ -208,6 +259,29 @@
         </div>
     </section>
 
+    <!-- FAQ SECTION (დაბრუნებული ხშირად დასმული კითხვები) -->
+    <section id="faq" class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="text-xs uppercase tracking-widest text-gold font-semibold">FAQ</span>
+            <h2 class="text-3xl font-light mt-1" data-en="Frequently Asked Questions" data-ru="Часто задаваемые вопросы">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="space-y-4">
+            <details class="glass-card p-5 rounded-2xl border-zinc-800 cursor-pointer">
+                <summary class="font-medium text-gold" data-en="What should I bring to my first class?" data-ru="Что взять с собой на первое занятие?">What should I bring to my first class?</summary>
+                <p class="text-xs text-zinc-400 mt-3 leading-relaxed" data-en="Just comfortable sportswear and socks. Clean mats, water, and towels are provided." data-ru="Только удобную спортивную форму и носки. Коврики, воду и полотенца мы предоставляем.">Just comfortable sportswear and socks. Clean mats, water, and towels are provided.</p>
+            </details>
+            <details class="glass-card p-5 rounded-2xl border-zinc-800 cursor-pointer">
+                <summary class="font-medium text-gold" data-en="I am a complete beginner. Is that okay?" data-ru="Я никогда не занималась растяжкой. Мне подойдет?">I am a complete beginner. Is that okay?</summary>
+                <p class="text-xs text-zinc-400 mt-3 leading-relaxed" data-en="Absolutely! Groups are max 8 people, so our trainer gives individual attention to all levels." data-ru="Конечно! Наша группа до 8 человек, поэтому тренер подбирает нагрузку индивидуально.">Absolutely! Groups are max 8 people, so our trainer gives individual attention to all levels.</p>
+            </details>
+            <details class="glass-card p-5 rounded-2xl border-zinc-800 cursor-pointer">
+                <summary class="font-medium text-gold" data-en="How do I book and pay for the hall rental?" data-ru="Как забронировать и оплатить аренду зала?">How do I book and pay for the hall rental?</summary>
+                <p class="text-xs text-zinc-400 mt-3 leading-relaxed" data-en="You can reserve time online via card (Bank of Georgia / TBC) or pay on-site." data-ru="Вы можете забронировать время онлайн картой (BOG / TBC) или оплатить на месте.">You can reserve time online via card (Bank of Georgia / TBC) or pay on-site.</p>
+            </details>
+        </div>
+    </section>
+
     <!-- Hall Rent Section -->
     <section id="rent" class="py-16 px-6 max-w-4xl mx-auto border-t border-zinc-800">
         <div class="glass-card p-8 rounded-3xl border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -225,12 +299,11 @@
         </div>
     </section>
 
-    <!-- BOOKING MODAL WITH PROGRESS BAR -->
+    <!-- BOOKING MODAL -->
     <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="glass-card max-w-md w-full p-6 md:p-8 rounded-3xl relative gold-border">
             <button onclick="closeBooking()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl">✕</button>
             
-            <!-- Progress Bar Trigger -->
             <div class="mb-6">
                 <div class="flex justify-between text-[11px] text-zinc-400 mb-1.5">
                     <span>Step 2 of 2</span>
