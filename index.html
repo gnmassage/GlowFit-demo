@@ -3,93 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowFit Studio | Tbilisi</title>
+    <title>GlowFit Studio Tbilisi | Yoga, Stretching & Hall Rent</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#E2C39B', dark: '#C5A275', light: '#F4EAE1' },
+                        bgDark: '#0D0D0E',
+                        cardDark: '#161618'
+                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0D0D0E; color: #F4EAE1; }
+        .glass-card { background: rgba(22, 22, 24, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(226, 195, 155, 0.15); }
+        .gold-border { border: 1px solid rgba(226, 195, 155, 0.4); }
+        .gold-glow { box-shadow: 0 0 25px rgba(226, 195, 155, 0.2); }
     </style>
 </head>
-<body class="bg-[#121212] text-zinc-100 antialiased">
+<body class="antialiased selection:bg-gold selection:text-black">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/5 py-4 px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-bold tracking-tight text-gold">GlowFit</span>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 border-l border-zinc-700 pl-2">Tbilisi</span>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-zinc-300">
+                <a href="#quiz" class="hover:text-gold transition">Подобрать практику</a>
+                <a href="#schedule" class="hover:text-gold transition">Расписание</a>
+                <a href="#pricing" class="hover:text-gold transition">Цены</a>
+                <a href="#rent" class="hover:text-gold transition">Аренда зала</a>
+            </nav>
+            <button onclick="openBooking('Бесплатный пробный урок')" class="bg-gold text-black font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-dark transition gold-glow">
+                Бесплатный пробный
+            </button>
+        </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-zinc-900 to-[#121212] px-6 text-center">
-        <div class="max-w-3xl">
-            <span class="inline-block text-xs uppercase tracking-widest text-amber-200/80 mb-4 px-3 py-1 border border-amber-200/20 rounded-full">Tbilisi • Find Your Flow</span>
-            <h1 class="text-5xl md:text-7xl font-light tracking-tight mb-6">GlowFit Studio</h1>
-            <p class="text-lg md:text-xl text-zinc-400 mb-8 font-light">Stretching • Yoga • Fitness • Hall for Rent</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#booking" class="bg-amber-100 text-zinc-950 font-semibold px-8 py-4 rounded-full hover:bg-amber-200 transition">Бесплатное пробное занятие</a>
-                <a href="#rent" class="border border-zinc-700 text-zinc-300 font-medium px-8 py-4 rounded-full hover:bg-zinc-800 transition">Аренда зала (40 ₾/час)</a>
+    <section class="relative pt-36 pb-20 px-6 max-w-6xl mx-auto min-h-screen flex items-center">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-xs text-gold mb-6 gold-border">
+                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                    Набор в мини-группы • Тбилиси
+                </div>
+                <h1 class="text-4xl md:text-6xl font-light tracking-tight leading-tight mb-6">
+                    Найдите свой баланс и гибкость в <span class="font-semibold text-gold">GlowFit Studio</span>
+                </h1>
+                <p class="text-zinc-400 text-lg mb-8 max-w-xl font-light">
+                    Персональный подход в мини-группах до 8 человек. Раскройте потенциал тела без стресса и боли.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="openBooking('Бесплатный пробный урок')" class="bg-gold text-black font-semibold px-8 py-4 rounded-full text-center hover:bg-gold-dark transition gold-glow">
+                        Записаться на Пробный Урок (FREE)
+                    </button>
+                    <a href="#quiz" class="border border-zinc-700 text-zinc-300 font-medium px-8 py-4 rounded-full text-center hover:bg-zinc-800 transition">
+                        Пройти тест (1 мин)
+                    </a>
+                </div>
+                <!-- Trust Badges -->
+                <div class="mt-12 flex items-center gap-8 border-t border-zinc-800 pt-6 text-sm text-zinc-400">
+                    <div><span class="text-gold font-bold text-lg">FREE</span> Пробный урок</div>
+                    <div><span class="text-gold font-bold text-lg">8</span> Человек макс.</div>
+                    <div><span class="text-gold font-bold text-lg">40 ₾</span> Аренда зала</div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-5">
+                <div class="glass-card p-6 rounded-3xl relative gold-border gold-glow">
+                    <div class="text-xs uppercase text-gold font-semibold tracking-wider mb-2">Спецпредложение</div>
+                    <h3 class="text-xl font-bold mb-3">Заберите бесплатное пробное занятие</h3>
+                    <p class="text-xs text-zinc-400 mb-6">Попробуйте Stretching, Yoga или Fitness бесплатно при бронировании до конца недели.</p>
+                    
+                    <form onsubmit="handleQuickSubmit(event)" class="space-y-4">
+                        <input type="text" id="quickName" placeholder="Ваше имя" required class="w-full bg-zinc-900/80 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
+                        <input type="tel" id="quickPhone" placeholder="Ваш WhatsApp / Telegram" required class="w-full bg-zinc-900/80 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
+                        <select id="quickDirection" class="w-full bg-zinc-900/80 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold text-zinc-300">
+                            <option value="Stretching">Stretching (Растяжка)</option>
+                            <option value="Yoga">Yoga (Иога)</option>
+                            <option value="Fitness">Fitness & Barre</option>
+                        </select>
+                        <button type="submit" class="w-full bg-gold text-black font-semibold py-3.5 rounded-xl hover:bg-gold-dark transition">
+                            Получить бесплатный урок
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-20 px-6 bg-zinc-900/40 border-y border-zinc-800/80">
+        <div class="max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-3xl border border-zinc-800">
+            <div class="text-center mb-8">
+                <span class="text-xs uppercase tracking-widest text-gold font-semibold">Интерактивный подбор</span>
+                <h2 class="text-2xl md:text-3xl font-light mt-2">Какая практика подходит именно вам?</h2>
+            </div>
+
+            <div id="quizContent">
+                <!-- Step 1 -->
+                <div id="quizStep1" class="space-y-4">
+                    <p class="text-sm text-zinc-300 font-medium">1. Какова ваша главная цель?</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <button onclick="nextQuizStep('Цель: Гибкость и сесть на шпагат', 'Stretching')" class="p-4 bg-zinc-900/90 border border-zinc-800 rounded-xl text-left hover:border-gold transition">
+                            🧘‍♀️ Сесть на шпагат и снять зажимы
+                        </button>
+                        <button onclick="nextQuizStep('Цель: Снять стресс и осанка', 'Yoga')" class="p-4 bg-zinc-900/90 border border-zinc-800 rounded-xl text-left hover:border-gold transition">
+                            🌿 Снять стресс и укрепить спину
+                        </button>
+                        <button onclick="nextQuizStep('Цель: Тонус и похудение', 'Fitness')" class="p-4 bg-zinc-900/90 border border-zinc-800 rounded-xl text-left hover:border-gold transition">
+                            🔥 Подтянуть тело и поднять тонус
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Result Step (Hidden initially) -->
+                <div id="quizResult" class="hidden text-center space-y-6">
+                    <div class="inline-block p-4 rounded-full bg-gold/10 text-gold text-3xl">✨</div>
+                    <h3 class="text-xl font-bold text-gold" id="quizRecommended">Вам идеально подойдет Stretching</h3>
+                    <p class="text-sm text-zinc-400 max-w-md mx-auto" id="quizDesc">Мягкая растяжка поможет снять напряжение в мышцах, улучшит осанку и добавит легкости в теле.</p>
+                    <button onclick="openBooking('Запись по результатам теста')" class="bg-gold text-black font-semibold px-8 py-3.5 rounded-full hover:bg-gold-dark transition gold-glow">
+                        Записаться на этот урок бесплатно
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="booking" class="py-20 px-6 max-w-6xl mx-auto">
+    <section id="pricing" class="py-24 px-6 max-w-6xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-light mb-4">Цены и Абонементы</h2>
-            <p class="text-zinc-400">Групповые и персональные тренировки</p>
+            <span class="text-xs uppercase tracking-widest text-gold font-semibold">Прозрачные тарифы</span>
+            <h2 class="text-3xl md:text-4xl font-light mt-2">Абонементы и Цены</h2>
+            <p class="text-zinc-400 text-sm mt-2">Выберите удобный формат посещений</p>
         </div>
 
         <div class="grid md:grid-cols-4 gap-6">
             <!-- Trial -->
-            <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl flex flex-col justify-between">
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-zinc-800 hover:border-gold transition">
                 <div>
-                    <h3 class="text-lg font-medium text-amber-200 mb-2">Proba / Trial</h3>
-                    <div class="text-3xl font-bold mb-4">FREE</div>
-                    <p class="text-xs text-zinc-500 mb-6">Первое пробное занятие при покупке абонемента</p>
+                    <span class="text-xs text-gold uppercase font-semibold">Для новичков</span>
+                    <h3 class="text-lg font-bold mt-1">Trial Class</h3>
+                    <div class="text-3xl font-bold my-4 text-gold">FREE</div>
+                    <p class="text-xs text-zinc-400 mb-6">Первое пробное занятие при покупке абонемента в день посещения.</p>
                 </div>
-                <button class="w-full py-3 bg-zinc-800 rounded-xl text-sm font-medium hover:bg-zinc-700 transition">Записаться</button>
+                <button onclick="openBooking('Free Trial')" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
+                    Забронировать
+                </button>
             </div>
 
             <!-- 4 Classes -->
-            <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl flex flex-col justify-between">
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-zinc-800 hover:border-gold transition">
                 <div>
-                    <h3 class="text-lg font-medium mb-2">4 Занятия</h3>
-                    <div class="text-3xl font-bold mb-4">110 ₾</div>
-                    <p class="text-xs text-zinc-500 mb-6">Разовое занятие: 30 ₾</p>
+                    <span class="text-xs text-zinc-400 uppercase">Мини</span>
+                    <h3 class="text-lg font-bold mt-1">4 Занятия</h3>
+                    <div class="text-3xl font-bold my-4">110 ₾</div>
+                    <p class="text-xs text-zinc-400 mb-6">Разовое занятие: 30 ₾. Срок действия: 30 дней.</p>
                 </div>
-                <button class="w-full py-3 bg-zinc-800 rounded-xl text-sm font-medium hover:bg-zinc-700 transition">Выбрать</button>
+                <button onclick="openBooking('Абонемент 4 занятия (110 GEL)')" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
+                    Выбрать
+                </button>
             </div>
 
-            <!-- 8 Classes -->
-            <div class="bg-zinc-900/50 border border-amber-200/40 p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
-                <span class="absolute top-3 right-3 text-[10px] uppercase bg-amber-200/20 text-amber-200 px-2 py-0.5 rounded">Популярно</span>
+            <!-- 8 Classes (Popular) -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between gold-border gold-glow relative">
+                <span class="absolute -top-3 right-4 bg-gold text-black text-[10px] uppercase font-bold px-3 py-1 rounded-full">Хит продаж</span>
                 <div>
-                    <h3 class="text-lg font-medium mb-2">8 Занятий</h3>
-                    <div class="text-3xl font-bold mb-4">210 ₾</div>
-                    <p class="text-xs text-zinc-500 mb-6">Действует 30 дней</p>
+                    <span class="text-xs text-gold uppercase font-semibold">Оптимальный</span>
+                    <h3 class="text-lg font-bold mt-1">8 Занятий</h3>
+                    <div class="text-3xl font-bold my-4 text-gold">210 ₾</div>
+                    <p class="text-xs text-zinc-400 mb-6">~26 ₾ за занятие. Идеально для посещения 2 раза в неделю.</p>
                 </div>
-                <button class="w-full py-3 bg-amber-100 text-zinc-950 font-semibold rounded-xl text-sm hover:bg-amber-200 transition">Записаться</button>
+                <button onclick="openBooking('Абонемент 8 занятий (210 GEL)')" class="w-full py-3 bg-gold text-black font-semibold rounded-xl text-sm hover:bg-gold-dark transition">
+                    Купить абонемент
+                </button>
             </div>
 
             <!-- 12 Classes -->
-            <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl flex flex-col justify-between">
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-zinc-800 hover:border-gold transition">
                 <div>
-                    <h3 class="text-lg font-medium mb-2">12 Занятий</h3>
-                    <div class="text-3xl font-bold mb-4">300 ₾</div>
-                    <p class="text-xs text-zinc-500 mb-6">Максимальная выгода</p>
+                    <span class="text-xs text-zinc-400 uppercase">Максимум</span>
+                    <h3 class="text-lg font-bold mt-1">12 Занятий</h3>
+                    <div class="text-3xl font-bold my-4">300 ₾</div>
+                    <p class="text-xs text-zinc-400 mb-6">~25 ₾ за занятие. Для регулярных и активных практик.</p>
                 </div>
-                <button class="w-full py-3 bg-zinc-800 rounded-xl text-sm font-medium hover:bg-zinc-700 transition">Выбрать</button>
+                <button onclick="openBooking('Абонемент 12 занятий (300 GEL)')" class="w-full py-3 bg-zinc-800 text-zinc-200 rounded-xl font-medium text-sm hover:bg-zinc-700 transition">
+                    Выбрать
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Hall Rent Section -->
-    <section id="rent" class="py-20 px-6 bg-zinc-900/30 border-y border-zinc-800">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-light mb-4">Аренда Зала в Тбилиси</h2>
-            <p class="text-zinc-400 mb-8">Эстетичное пространство для ваших мастер-классов, съемок и тренировок</p>
-            <div class="inline-block bg-zinc-900 border border-zinc-700 rounded-2xl p-8 mb-8">
-                <div class="text-4xl font-bold text-amber-200 mb-2">40 ₾ <span class="text-base font-normal text-zinc-400">/ час</span></div>
-                <p class="text-sm text-zinc-400">Коврики, кубики, звук и идеальный свет входят в стоимость</p>
-            </div>
-            <div>
-                <a href="https://instagram.com/glowfit_tbilisi" target="_blank" class="inline-block bg-zinc-100 text-zinc-950 px-8 py-3 rounded-full font-medium hover:bg-amber-100 transition">Забронировать время</a>
+    <!-- Hall Rent Calculator Section -->
+    <section id="rent" class="py-20 px-6 bg-zinc-900/50 border-t border-zinc-800">
+        <div class="max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-3xl gold-border">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="text-xs uppercase text-gold font-semibold tracking-wider">Для преподавателей и фотографов</span>
+                    <h2 class="text-3xl font-light mt-2 mb-4">Аренда зала в Тбилиси</h2>
+                    <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                        Светлое эстетичное пространство с ковриками, кубиками, профессиональным звуком и качественным освещением для видео и съемок.
+                    </p>
+                    <div class="text-2xl font-bold text-gold mb-1">40 ₾ <span class="text-sm font-normal text-zinc-400">/ час</span></div>
+                </div>
+
+                <div class="bg-zinc-900/90 p-6 rounded-2xl border border-zinc-800 space-y-4">
+                    <label class="block text-xs text-zinc-400">Рассчитайте стоимость аренды:</label>
+                    <div class="flex items-center gap-4">
+                        <input type="range" id="hoursRange" min="1" max="8" value="2" oninput="updateHours(this.value)" class="w-full accent-gold">
+                        <span id="hoursText" class="font-bold text-lg min-w-[60px]">2 часа</span>
+                    </div>
+                    <div class="border-t border-zinc-800 pt-4 flex justify-between items-center">
+                        <span class="text-sm text-zinc-400">Итоговая стоимость:</span>
+                        <span id="totalPrice" class="text-2xl font-bold text-gold">80 ₾</span>
+                    </div>
+                    <button onclick="openBooking('Аренда зала')" class="w-full bg-gold text-black font-semibold py-3 rounded-xl hover:bg-gold-dark transition">
+                        Забронировать зал
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Modal Booking Window -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card max-w-md w-full p-6 md:p-8 rounded-3xl relative gold-border">
+            <button onclick="closeBooking()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl">✕</button>
+            <h3 class="text-xl font-bold text-gold mb-1" id="modalTitle">Запись на занятие</h3>
+            <p class="text-xs text-zinc-400 mb-6">Оставьте контакт — администратор свяжется с вами в течение 15 минут.</p>
+
+            <form onsubmit="submitBooking(event)" class="space-y-4">
+                <input type="hidden" id="modalService" value="">
+                <div>
+                    <label class="block text-xs text-zinc-400 mb-1">Имя</label>
+                    <input type="text" id="modalName" required placeholder="Анна" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="block text-xs text-zinc-400 mb-1">Телефон / Telegram / WhatsApp</label>
+                    <input type="tel" id="modalPhone" required placeholder="+995 ..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                </div>
+                <button type="submit" class="w-full bg-gold text-black font-semibold py-3.5 rounded-xl hover:bg-gold-dark transition">
+                    Подтвердить запись
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        function openBooking(serviceName) {
+            document.getElementById('modalService').value = serviceName;
+            document.getElementById('modalTitle').innerText = serviceName;
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function closeBooking() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function updateHours(val) {
+            document.getElementById('hoursText').innerText = val + ' ' + (val == 1 ? 'час' : 'часа');
+            document.getElementById('totalPrice').innerText = (val * 40) + ' ₾';
+        }
+
+        let selectedGoal = '';
+        function nextQuizStep(goal, direction) {
+            selectedGoal = goal;
+            document.getElementById('quizStep1').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            document.getElementById('quizRecommended').innerText = 'Вам идеально подходит: ' + direction;
+        }
+
+        function handleQuickSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quickName').value;
+            const phone = document.getElementById('quickPhone').value;
+            const dir = document.getElementById('quickDirection').value;
+            const text = `Здравствуйте! Заявка с сайта GlowFit.\nИмя: ${name}\nТелефон: ${phone}\nНаправление: ${dir}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+            const service = document.getElementById('modalService').value;
+            const name = document.getElementById('modalName').value;
+            const phone = document.getElementById('modalPhone').value;
+            const text = `Здравствуйте! Заявка с сайта GlowFit.\nУслуга: ${service}\nИмя: ${name}\nТелефон: ${phone}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+            closeBooking();
+        }
+    </script>
 </body>
 </html>
