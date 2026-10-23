@@ -50,9 +50,18 @@
     <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/5 py-3.5 px-4 md:px-6">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             
-            <!-- STATIC FIXED LOGO BLOCK -->
+            <!-- 2-SECOND SLIDING LOGO FOR GLOWFIT -->
             <div class="flex items-center gap-2 md:gap-3">
-                <span class="text-xl md:text-2xl font-bold tracking-tight text-gold">GlowFit</span>
+                <div class="relative h-8 w-32 md:w-40 overflow-hidden">
+                    <!-- Slide 1: Uploaded Image Logo -->
+                    <div id="logoSlide1" class="absolute inset-0 flex items-center transition-all duration-700 opacity-100 transform translate-y-0">
+                        <img src="logo.png" alt="GlowFit Logo" class="h-7 md:h-8 w-auto object-contain">
+                    </div>
+                    <!-- Slide 2: Text Logo -->
+                    <div id="logoSlide2" class="absolute inset-0 flex items-center transition-all duration-700 opacity-0 transform translate-y-4">
+                        <span class="text-xl md:text-2xl font-bold tracking-tight text-gold">GlowFit</span>
+                    </div>
+                </div>
                 <span class="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 border-l border-zinc-700 pl-2 md:pl-3">Tbilisi</span>
             </div>
             
@@ -398,6 +407,31 @@
             window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
             closeBooking();
         }
+
+        // 2-Second Logo Slider for GlowFit
+        let currentLogoSlide = 1;
+        setInterval(() => {
+            const slide1 = document.getElementById('logoSlide1');
+            const slide2 = document.getElementById('logoSlide2');
+            
+            if (slide1 && slide2) {
+                if (currentLogoSlide === 1) {
+                    slide1.classList.remove('opacity-100', 'translate-y-0');
+                    slide1.classList.add('opacity-0', '-translate-y-4');
+                    
+                    slide2.classList.remove('opacity-0', 'translate-y-4');
+                    slide2.classList.add('opacity-100', 'translate-y-0');
+                    currentLogoSlide = 2;
+                } else {
+                    slide2.classList.remove('opacity-100', 'translate-y-0');
+                    slide2.classList.add('opacity-0', 'translate-y-4');
+                    
+                    slide1.classList.remove('opacity-0', '-translate-y-4');
+                    slide1.classList.add('opacity-100', 'translate-y-0');
+                    currentLogoSlide = 1;
+                }
+            }
+        }, 2000);
 
         window.onload = function() {
             switchLang('ru');
